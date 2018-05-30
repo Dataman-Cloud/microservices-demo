@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>user : Query All User and List Below</title>
+	<meta http-quiv="Content-Type" content="text/html; charset=UTF-8"/>	
+</head>
+<body>
+	<h1>用户信息</h1>
+	<div style="text-align: center;margin:0 auto;width: 1000px; ">
+	<table width="100%" border="1" cellspacing="1" cellpadding="0">
+		<tr>
+			<th>ID</th>
+			<th>Username</th>
+			<th>Mobile</th>
+			<th>Address</th>
+		</tr>
+		<tr th:each="user:${users}">
+			<td th:text="${user.id}"></td>
+			<td th:text="${user.username}"></td>
+			<td th:text="${user.mobile}"></td>
+			<td th:text="${user.address}"></td>
+		</tr>
+	</table>
+	</div>
+</body>
+
+</html>

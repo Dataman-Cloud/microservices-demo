@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Welcome - www.dmcloud.com</title>
+</head>
+<body>
+	<p th:text="${message}"></p>
+	<h1>用户信息</h1>
+	<form action="#" th:action="@{/user}" method="get">
+	<p>id: <input type="text" /></p>
+
+	<p><input type="submit" value="Submit" /><input type="reset" value="Reset" /></p>
+	</form>
+</body>
+</html>
