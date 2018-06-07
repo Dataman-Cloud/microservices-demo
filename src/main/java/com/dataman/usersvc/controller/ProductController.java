@@ -45,7 +45,7 @@ public class ProductController {
 		modelMap.addAttribute("kafka", kafka);
 		
 		sbLogs.append(new Date()).append("\t").append("call DBACCESS-SERVICE——>selectAllProducts()").append("\n");
-		modelMap.addAttribute("orders", productService.selectAll());
+		modelMap.addAttribute("products", productService.selectAll());
 		sbLogs.append(new Date()).append("\t").append("finished call DBACCESS-SERVICE——>selectAll()").append("\n");
 		
 		modelMap.addAttribute("logs", sbLogs.toString());

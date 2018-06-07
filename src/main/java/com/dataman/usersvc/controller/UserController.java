@@ -64,7 +64,7 @@ public class UserController {
 		modelMap.addAttribute("kafka", kafka);
 		
 		sbLogs.append(new Date()).append("\t").append("call DBACCESS-SERVICE——>selectAllUsers()").append("\n");
-		modelMap.addAttribute("orders", userService.selectAll());
+		modelMap.addAttribute("users", userService.selectAll());
 		sbLogs.append(new Date()).append("\t").append("finished call DBACCESS-SERVICE——>selectAll()").append("\n");
 		
 		modelMap.addAttribute("logs", sbLogs.toString());
