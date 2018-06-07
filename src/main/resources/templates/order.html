@@ -70,6 +70,10 @@
 			
 			<div class="alert alert-success text-center" role="alert" th:text="${redis}"></div>
 			<div class="alert alert-success text-center" role="alert" th:text="${kafka}"></div>
+			
+			<div class="field_text field_textarea">
+				<textarea id="message" placeholder="Message" th:text="${logs}"></textarea>
+			</div>
 
 		</div>
 		<!--/ container -->

@@ -1,5 +1,7 @@
 package com.dataman.usersvc.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -36,32 +38,37 @@ public class UserController {
 	
 	@RequestMapping("/user")
 	public String userForm(ModelMap modelMap) {
-//		User user = new User();
-//		user.setId(1);
-//		user.setUserName("yuexiaoyang");
-//		user.setMobile("13012345678");
-//		user.setAddress("Beijing, China");
-//		model.addAttribute("user", user);
-//		return "user";
-//		User user = new User();
-//		model.addAttribute("user", user);
-//		return new ModelAndView("index");
+
+		StringBuilder sbLogs = new StringBuilder();
+		String welcome;
+		String kafka;
+		String redis;		
 		
-		modelMap.addAttribute("welcome", userService.welcome());
-		modelMap.addAttribute("redis", userService.redis());
-		modelMap.addAttribute("kafka", userService.kafka());
+		sbLogs.append(new Date()).append("\t").append("call DBACCESS-SERVICE——>welcome()").append("\n");
+		welcome = userService.welcome();
+		sbLogs.append("[Return Message]\t").append(welcome).append("\n");
+		sbLogs.append(new Date()).append("\t").append("finished call DBACCESS-SERVICE——>welcome()").append("\n");
 		
-		modelMap.addAttribute("users", userService.selectAll());
+		sbLogs.append(new Date()).append("\t").append("call DBACCESS-SERVICE——>redis()").append("\n");
+		redis = userService.redis();
+		sbLogs.append("[Return Message]\t").append(redis).append("\n");
+		sbLogs.append(new Date()).append("\t").append("finished call DBACCESS-SERVICE——>redis()").append("\n");
+		
+		sbLogs.append(new Date()).append("\t").append("call DBACCESS-SERVICE——>kafka()").append("\n");
+		kafka = userService.kafka();
+		sbLogs.append("[Return Message]\t").append(kafka).append("\n");
+		sbLogs.append(new Date()).append("\t").append("finished call DBACCESS-SERVICE——>kafka()").append("\n");
+		
+		modelMap.addAttribute("welcome", welcome);
+		modelMap.addAttribute("redis", redis);
+		modelMap.addAttribute("kafka", kafka);
+		
+		sbLogs.append(new Date()).append("\t").append("call DBACCESS-SERVICE——>selectAllUsers()").append("\n");
+		modelMap.addAttribute("orders", userService.selectAll());
+		sbLogs.append(new Date()).append("\t").append("finished call DBACCESS-SERVICE——>selectAll()").append("\n");
+		
+		modelMap.addAttribute("logs", sbLogs.toString());
 
 		return "user";
-	}
-	
-	@RequestMapping("/")
-	public String home(ModelMap modelMap) {
-		modelMap.addAttribute("welcome", userService.welcome());
-		modelMap.addAttribute("redis", userService.redis());
-		modelMap.addAttribute("kafka", userService.kafka());
-		
-		return "home";
 	}
 }

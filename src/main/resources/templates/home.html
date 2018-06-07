@@ -4,7 +4,9 @@
 <!--[if IE 7 ]><html xmlns:th="http://www.thymeleaf.org" lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]><html xmlns:th="http://www.thymeleaf.org" lang="en" class="no-js ie8"> <![endif]-->
 <!--[if IE 9 ]><html xmlns:th="http://www.thymeleaf.org" lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html xmlns:th="http://www.thymeleaf.org" lang="en" class="no-js" > <!--<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html xmlns:th="http://www.thymeleaf.org" lang="en" class="no-js">
+<!--<![endif]-->
 <head>
 <meta charset="utf-8" />
 <meta name="author" content="" />
@@ -13,16 +15,24 @@
 <title></title>
 
 <!-- main JS libs -->
-<script src="../static/vanilla-cream-css/js/libs/modernizr.min.js" th:src="@{/vanilla-cream-css/js/libs/modernizr.min.js}"></script>
-<script src="../static/vanilla-cream-css/js/libs/jquery-1.10.0.js" th:src="@{/vanilla-cream-css/js/libs/jquery-1.10.0.js}"></script>
-<script src="../static/vanilla-cream-css/js/libs/jquery-ui.min.js" th:src="@{/vanilla-cream-css/js/libs/jquery-ui.min.js}"></script>
-<script src="../static/vanilla-cream-css/js/libs/bootstrap.min.js" th:src="@{/vanilla-cream-css/js/libs/bootstrap.min.js}"></script>
+<script src="../static/vanilla-cream-css/js/libs/modernizr.min.js"
+	th:src="@{/vanilla-cream-css/js/libs/modernizr.min.js}"></script>
+<script src="../static/vanilla-cream-css/js/libs/jquery-1.10.0.js"
+	th:src="@{/vanilla-cream-css/js/libs/jquery-1.10.0.js}"></script>
+<script src="../static/vanilla-cream-css/js/libs/jquery-ui.min.js"
+	th:src="@{/vanilla-cream-css/js/libs/jquery-ui.min.js}"></script>
+<script src="../static/vanilla-cream-css/js/libs/bootstrap.min.js"
+	th:src="@{/vanilla-cream-css/js/libs/bootstrap.min.js}"></script>
 
 <!-- Style CSS -->
-<link rel="stylesheet" href="../static/vanilla-cream-css/css/bootstrap.css" th:href="@{/vanilla-cream-css/css/bootstrap.css}" />
-<link rel="stylesheet" href="../static/vanilla-cream-css/style.css"  th:href="@{/vanilla-cream-css/style.css}"  />
+<link rel="stylesheet"
+	href="../static/vanilla-cream-css/css/bootstrap.css"
+	th:href="@{/vanilla-cream-css/css/bootstrap.css}" />
+<link rel="stylesheet" href="../static/vanilla-cream-css/style.css"
+	th:href="@{/vanilla-cream-css/style.css}" />
 <!-- scripts -->
-<script src="../static/vanilla-cream-css/js/general.js" th:src="@{/vanilla-cream-css/js/general.js}"></script>
+<script src="../static/vanilla-cream-css/js/general.js"
+	th:src="@{/vanilla-cream-css/js/general.js}"></script>
 
 <!-- Include all needed stylesheets and scripts here -->
 
@@ -35,14 +45,25 @@
 </head>
 
 <body style="background-image: none;">
-    <div class="body_wrap">
-        <div class="container">
-            <div class="alert alert-success text-center" role="alert" th:text="${welcome}"></div>
-			<div class="alert alert-success text-center" role="alert" th:text="${redis}"></div>
-			<div class="alert alert-success text-center" role="alert" th:text="${kafka}"></div>
 
-        </div>
-        <!--/ container -->
-    </div>
+
+	<div class="body_wrap">
+		<div class="container">
+			<div class="alert alert-success text-center" role="alert"
+				th:text="${welcome}"></div>
+			<div class="alert alert-success text-center" role="alert"
+				th:text="${redis}"></div>
+			<div class="alert alert-success text-center" role="alert"
+				th:text="${kafka}"></div>
+
+			<div class="field_text field_textarea">
+				<textarea id="message" placeholder="Message" th:text="${logs}"></textarea>
+			</div>
+
+		</div>
+
+
+		<!--/ container -->
+	</div>
 </body>
 </html>
