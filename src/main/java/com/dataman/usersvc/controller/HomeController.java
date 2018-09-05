@@ -49,6 +49,7 @@ public class HomeController {
 		modelMap.addAttribute("logs", sbLogs.toString());
 		
 		System.out.println("finished");
+		System.out.println("test");
 		
 		return "home";
 	}
