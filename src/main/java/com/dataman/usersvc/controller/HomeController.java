@@ -48,6 +48,8 @@ public class HomeController {
 		modelMap.addAttribute("kafka", kafka);
 		modelMap.addAttribute("logs", sbLogs.toString());
 		
+		System.out.println("finished");
+		
 		return "home";
 	}
 	
